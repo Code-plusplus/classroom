@@ -1,0 +1,122 @@
+.loginPage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginItems {
+    text-align: center;
+}
+
+.content {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 480px;
+    text-align: center;
+}
+
+.showPosts {
+    margin-top: 16px;
+}
+
+.post {
+    padding: 16px;
+    min-height: 0 !important;
+    margin-bottom: 10px;
+}
+
+.vertical {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.horizontal {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background: red;
+}
+
+.userName {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.userMessage {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.createPost .mdl-card {
+    width: 480px;
+}
+
+.showPosts .mdl-card {
+    width: 480px;
+}
+
+.mdl-textfield__input {
+    resize: none;
+}
+
+@media screen and (max-width:480px) {
+    .container {
+        max-width: 100%;
+        width: 100%;
+    }
+    .createPost .mdl-card {
+        width: 100%;
+    }
+    .showPosts .mdl-card {
+        width: 100%;
+    }
+}
+
+.txtf {
+    width: 100% !important;
+}
+
+.showPosts {}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #3498db;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#3498db, #46B6AC);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#3498db, #46B6AC);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#3498db, #46B6AC);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#3498db, #46B6AC);
+    /* Standard syntax */
+}
