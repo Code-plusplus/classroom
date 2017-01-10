@@ -4,7 +4,7 @@ getUser().then(function(result) {
     console.log(result.displayName);
 }, function(err) {
     console.log(err);
-    window.location = "/login.html"; // Error: "It broke"
+    window.location = "/classroom/login.html"; // Error: "It broke"
 });
 //if (getUser() == null) window.location = "/login.html";
 
