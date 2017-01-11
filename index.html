@@ -37,6 +37,10 @@
                             <div class="userName">{{post.user.name}}</div>
                             <div class="userMessage">{{post.message}}</div>
                         </div>
+                        <div id="heart" class="heartContainer">
+                            <i class="material-icons heart" onClick="heart(this)" id="{{post.id}}" data-post-id="{{post.id}}">{{(post.hearts[uid])?'favorite':'favorite_border'}}</i>
+                            <div class="heartCount">{{post.heartCount}}</div>
+                        </div>
                     </div>
                 </div>
             </div>

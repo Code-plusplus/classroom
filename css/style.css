@@ -6,6 +6,21 @@
     align-items: center;
 }
 
+.heartContainer {
+    position: absolute;
+    right: 16px;
+}
+
+.heart {
+    color: rgb(255, 64, 129);
+    cursor: pointer;
+}
+
+.heartCount {
+    color: grey;
+    line-height: 1em;
+}
+
 .loginItems {
     text-align: center;
     color: white;

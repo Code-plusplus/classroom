@@ -12,6 +12,12 @@ app.controller("myCtrl", function($scope, $firebaseArray) {
     var ref = firebase.database().ref().child('class/common/posts').limitToLast(20).orderByChild("sortDate");
     // download the data into a local object
     $scope.posts = $firebaseArray(ref);
+    getUser().then(function(result) {
+        $scope.uid = result.uid;
+    }, function(err) {
+        console.log(err);
+        window.location = "/classroom/login.html"; // Error: "It broke"
+    });
 
 });
 
@@ -41,6 +47,33 @@ function newPost() {
     });
 }
 
+function heart(heart) {
+    getUser().then(function(result) {
+        toggleHeart(heart.dataset.postId, result.uid);
+    }, function(err) {
+        console.log(err);
+        toast("User not logged in!");
+    });
+}
+
+function toggleHeart(postId, uid) {
+    firebase.database().ref('class/common/posts/' + postId).transaction(function(post) {
+        if (post) {
+            if (post.hearts && post.hearts[uid]) {
+                post.heartCount--;
+                post.hearts[uid] = null;
+            } else {
+                post.heartCount++;
+                if (!post.hearts) {
+                    post.hearts = {};
+                }
+                post.hearts[uid] = true;
+            }
+        }
+        return post;
+    });
+}
+
 function createPost(currentUser) {
     console.log(currentUser.displayName);
     if (currentUser != null) {
@@ -52,8 +85,10 @@ function createPost(currentUser) {
                     'name': currentUser.displayName,
                     'img': currentUser.photoURL
                 },
-                createdDate: Date.now() + 0,
-                sortDate: 0 - Date.now()
+                'heartCount': 0,
+                'id': newMessageRef.key,
+                'createdDate': Date.now() + 0,
+                'sortDate': 0 - Date.now()
             }).then(function() {
                 document.getElementById("newPost").value = "";
                 toast("Posted!")
